@@ -66,3 +66,24 @@ class Employee(Base):
 
     def __str__(self) -> str:
         return self.name
+    
+
+class Feature(Base):
+    ICON_CHOICE = (
+        ('lni-rocket','Rocket'),
+        ('lni-laptop-phone', 'Laptop-Phone'),
+        ('lni-cog', 'gear'),
+        ('lni-leaf', 'Leaf'),
+        ('lni-layers', 'Layers'),
+    )
+
+    icon = models.CharField(max_length=18, choices=ICON_CHOICE)
+    name = models.CharField(max_length=50)
+    description = models.CharField(max_length=255)
+
+    class Meta:
+        verbose_name = 'Feature'
+        verbose_name_plural = 'Features'
+
+    def __str__(self) -> str:
+        return self.name

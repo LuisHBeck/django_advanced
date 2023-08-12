@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import JobPosition, Employee, Service
+from .models import JobPosition, Employee, Service, Feature
 
 @admin.register(JobPosition)
 class JobPositionAdmin(admin.ModelAdmin):
@@ -16,5 +16,11 @@ class EmployeeAdmin(admin.ModelAdmin):
 @admin.register(Service)
 class ServiceAdmin(admin.ModelAdmin):
     list_display = ['name', 'description', 'icon']
+    ordering = ['id']
+
+
+@admin.register(Feature)
+class FeatureAdmin(admin.ModelAdmin):
+    list_display = ['name', 'description', 'active']
     ordering = ['id']
     
